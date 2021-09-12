@@ -29,4 +29,7 @@ ipcMain.on("toMain:person", (event, args) => {
     MainWindow.webContents.send('fromMain:car', args)
   
   });
+  ipcMain.on('toMain:path', (event, args)=>{
+      console.log(args);
+  })
 

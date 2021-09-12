@@ -3,7 +3,7 @@ const {contextBridge, ipcRenderer} = electron;
 
 contextBridge.exposeInMainWorld('api', {
     send: (channel, data) => {
-        let validChannels = ['toMain:person', 'toMain:car'];
+        let validChannels = ['toMain:person', 'toMain:car', 'toMain:path'];
         if(validChannels.includes(channel)){
             ipcRenderer.send(channel, data)
             
