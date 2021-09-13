@@ -18,28 +18,30 @@ app.on('ready', () => {
     })
     MainWindow.loadURL(`file://${__dirname}/index.html`)
 })
-ipcMain.on("toMain:person", (event, args) => {
-    console.log(args);
-    MainWindow.webContents.send('fromMain:person', args)
 
-});
-
-ipcMain.on("toMain:car", (event, args) => {
-    console.log(args);
-    MainWindow.webContents.send('fromMain:car', args)
-
-});
 ipcMain.on('toMain:path', async (event, args) => {
-    const result = await dialog.showOpenDialog(MainWindow, {
+    const res = await dialog.showOpenDialog(MainWindow, {
         properties: ['openDirectory']
     })
-    console.log(result.filePaths);
+    MainWindow.webContents.send('fromMain:path',await res)
+    
 })
+// ipcMain.on("toMain:person", (event, args) => {
+//     console.log(args);
+//     MainWindow.webContents.send('fromMain:person', args)
 
-ipcMain.on("toMain:test", async (event, args) =>{
-    const res = await dialog.showOpenDialog(MainWindow, {
-        properties: ["openDirectory"]
-    })
-    console.log(res);
-})
+// });
+
+// ipcMain.on("toMain:car", (event, args) => {
+//     console.log(args);
+//     MainWindow.webContents.send('fromMain:car', args)
+
+// });
+// ipcMain.on("toMain:test", async (event, args) =>{
+//     const res = await dialog.showOpenDialog(MainWindow, {
+//         properties: ["openDirectory"]
+//     })
+//     // console.log(res);
+//     MainWindow.webContents.send('fromMain:path', res)
+// })
 // some comments here
