@@ -1,14 +1,14 @@
 const electron = require('electron')
-const { app, BrowserWindow, ipcMain } = electron;
+const { app, BrowserWindow, ipcMain, dialog } = electron;
 const path = require('path');
 
 let MainWindow;
 
-app.on('ready', ()=>{
+app.on('ready', () => {
     MainWindow = new BrowserWindow({
         width: 300,
         height: 500,
-        webPreferences:{
+        webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: false,
             contextIsolation: true,
@@ -21,15 +21,25 @@ app.on('ready', ()=>{
 ipcMain.on("toMain:person", (event, args) => {
     console.log(args);
     MainWindow.webContents.send('fromMain:person', args)
-  
-  });
 
-  ipcMain.on("toMain:car", (event, args) => {
+});
+
+ipcMain.on("toMain:car", (event, args) => {
     console.log(args);
     MainWindow.webContents.send('fromMain:car', args)
-  
-  });
-  ipcMain.on('toMain:path', (event, args)=>{
-      console.log(args);
-  })
+
+});
+ipcMain.on('toMain:path', async (event, args) => {
+    const result = await dialog.showOpenDialog(MainWindow, {
+        properties: ['openDirectory']
+    })
+    console.log(result.filePaths);
+})
+
+ipcMain.on("toMain:test", async (event, args) =>{
+    const res = await dialog.showOpenDialog(MainWindow, {
+        properties: ["openDirectory"]
+    })
+    console.log(res);
+})
 // some comments here

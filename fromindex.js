@@ -23,6 +23,12 @@
 //     e.preventDefault()
 //     window.api.send("toMain:car", car);
 // })
+document.getElementById('testBtn').addEventListener('click', (e) =>{
+    e.preventDefault()
+    window.api.send('toMain:test')
+})
+
+
 document.getElementById('browse-button').addEventListener('click', (e) => {
     e.preventDefault()
 
