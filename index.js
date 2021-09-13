@@ -32,4 +32,4 @@ ipcMain.on("toMain:person", (event, args) => {
   ipcMain.on('toMain:path', (event, args)=>{
       console.log(args);
   })
-
+// some comments here
