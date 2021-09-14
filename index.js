@@ -20,11 +20,32 @@ const client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
 
 
 client.setCredentials({ refresh_token: process.env.GOOGLE_DRIVE_REFRESH_TOKEN });
+const service = google.drive({version:"v3",  client})
+
+var fileMetadata = {
+  'name': 'Invoices',
+  'mimeType': 'application/vnd.google-apps.folder'
+};
+service.files.create({
+  resource: fileMetadata,
+  fields: 'id'
+}, function (err, file) {
+  if (err) {
+    // Handle error
+    console.error(err);
+  } else {
+    console.log('Folder Id: ', file.id);
+  }
+});
+
+
+
+
 // console.log(client);
-console.log(google.drive({
-  version: 'v3',
-  auth: client
-}));
+// console.log(google.drive({
+//   version: 'v3',
+//   auth: client
+// }));
 
 // // If modifying these scopes, delete token.json.
 // const SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
