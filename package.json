@@ -1,0 +1,21 @@
+{
+  "name": "gdrive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/local-auth": "^1.0.1",
+    "@google-cloud/storage": "^5.14.0",
+    "dotenv": "^10.0.0",
+    "googleapis": "^85.0.0"
+  },
+  "devDependencies": {
+    "google-drive-getfilelist": "^1.0.5"
+  }
+}
