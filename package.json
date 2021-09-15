@@ -1,21 +1,17 @@
 {
-  "name": "gdrive",
+  "name": "contextbridge",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/local-auth": "^1.0.1",
-    "@google-cloud/storage": "^5.14.0",
-    "dotenv": "^10.0.0",
-    "googleapis": "^85.0.0"
-  },
-  "devDependencies": {
-    "google-drive-getfilelist": "^1.0.5"
+    "electron": "^14.0.0",
+    "path": "^0.12.7"
   }
 }
