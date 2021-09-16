@@ -5,10 +5,10 @@ const dotenv = require('dotenv')
 
 dotenv.config()
 
-const CLIENT_ID = process.env.CLIENT_ID
-const CLIENT_SECRET = process.env.CLIENT_SECRET
-const REDIRECT_URI = process.env.REDIRECT_URI
-const REFRESH_TOKEN = process.env.REFRESH_TOKEN
+const CLIENT_ID = process.env.GOOGLE_DRIVE_CLIENT_ID
+const CLIENT_SECRET = process.env.GOOGLE_DRIVE_CLIENT_SECRET
+const REDIRECT_URI = process.env.GOOGLE_DRIVE_REDIRECT_URI
+const REFRESH_TOKEN = process.env.GOOGLE_DRIVE_REFRESH_TOKEN
 
 const file = path.join(__dirname, 'copy.txt')
 const mime = 'text/plain'
@@ -18,13 +18,18 @@ const oauth2client = new google.auth.OAuth2(
     CLIENT_SECRET,
     REDIRECT_URI
 )
+// console.log(oauth2client);
 
 oauth2client.setCredentials({ refresh_token: REFRESH_TOKEN })
+
 
 const drive = google.drive({
     version: "v3",
     auth: oauth2client
 })
+
+// console.log(oauth2client);
+
 // LIST FILES AND FOLDERS
 async function listFiles() {
 
@@ -32,8 +37,10 @@ async function listFiles() {
 
     const res = await drive.files.list(params);
     let folders = res.data.files.filter(obj => obj.mimeType === 'application/vnd.google-apps.folder')
-    // console.log(folders);
+    console.log(folders);
 }
+
+
 // listFiles().catch(console.error)
 // [
 //     {
@@ -166,5 +173,30 @@ async function moveFile(fileId, folderId) {
 
 // moveFile('1O-YocZxPbFrReXrtrxcQ5dF2IPOzaI2M', '1w7X0rxBCRiuSiiKrZMANGzCTVB1o1jyk').catch(console.error)
 
+// DOWNLOAD FILES FROM GOOGLE DRIVE
 
+async function downloadFile() {
+    let fileId = '1Y_ekf0MM7Yq2Ylqp6gmTLhuI2bRE25M6';
+    let dest = fs.createWriteStream('C:\\Users\\user\\Desktop\\Новая папка\\Новая папка\\test.txt');
+
+    drive.files.get({
+        fileId: fileId,
+        alt: 'media'
+    }, { responseType: 'stream' }, (err, res) => {
+        console.log(res);
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(res);
+            res.data
+                .on('end', () => console.log('Done'))
+                .on('error', (err) => console.log(err))
+                .pipe(dest)
+        }
+
+    })
+
+}
+
+downloadFile().catch(console.error)
 
