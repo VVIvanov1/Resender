@@ -85,7 +85,6 @@ async function uploadFile() {
     console.log(response.data);
 
 }
-// uploadFile().catch(console.error)
 
 
 
@@ -101,11 +100,9 @@ async function createFolder(name) {
         fields: 'id'
     }, function (err, file) {
         if (err) {
-            // Handle error
             console.error(err);
         } else {
             console.log('Folder Id: ', file.id);
-            // console.log(file);
         }
     });
 }
@@ -128,7 +125,7 @@ async function createFolder(name) {
 
 async function saveToFolder(folderId, name, file) {
     // const folderId = '134vBXfTB5FnQy6PUSj5Ir2Pqz8AxBWS5 @name = file name @file = path to file @ folderId = google drive'
-    
+
     let fileMetadata = {
         name: name,
         parents: [folderId]
@@ -151,8 +148,14 @@ async function saveToFolder(folderId, name, file) {
     }
     )
 }
-// saveToFolder('134vBXfTB5FnQy6PUSj5Ir2Pqz8AxBWS5').catch(console.error)
 
+/**
+ * Function that raised after MIR file processed to 1C to 
+ * move this file to Processed files folder on Google Drive 
+ * @function moveFile
+ * @param {string} fileId - id of the file that needs to be moved
+ * @param {string} folderId - id of the folder to move this file
+ */
 // MOVING FILES BETWEEN FOLDERS
 
 async function moveFile(fileId, folderId) {
@@ -165,7 +168,7 @@ async function moveFile(fileId, folderId) {
             console.log(err);
         } else {
             let prevParents = file.parents;
-            console.log(prevParents);
+
             drive.files.update({
                 fileId: id,
                 addParents: folderId,
@@ -186,10 +189,16 @@ async function moveFile(fileId, folderId) {
 // moveFile('1O-YocZxPbFrReXrtrxcQ5dF2IPOzaI2M', '1w7X0rxBCRiuSiiKrZMANGzCTVB1o1jyk').catch(console.error)
 
 // DOWNLOAD FILES FROM GOOGLE DRIVE
-
-async function downloadFile() {
-    let fileId = '1Y_ekf0MM7Yq2Ylqp6gmTLhuI2bRE25M6';
-    let dest = fs.createWriteStream('C:\\Users\\user\\Desktop\\Новая папка\\Новая папка\\test.txt');
+/**
+ * Function that use to retrieve and download file 
+ * for further processing to 1C
+ * @function downloadFile
+ * @param {string} fileId - id of the file on google drive
+ * @param {string} destFolder - path to destination folder to download file from gdrive
+ */
+async function downloadFile(fileId, destFolder) {
+    // let fileId = '1Y_ekf0MM7Yq2Ylqp6gmTLhuI2bRE25M6';
+    let dest = fs.createWriteStream(destFolder);
 
     drive.files.get({
         fileId: fileId,
