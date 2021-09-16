@@ -1,5 +1,5 @@
 {
-  "name": "contextbridge",
+  "name": "resender",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "electron": "^14.0.0",
+    "googleapi": "^1.0.2",
+    "googleapis": "^86.1.0",
+    "hound": "^1.0.5",
     "path": "^0.12.7"
   }
 }

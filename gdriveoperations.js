@@ -18,7 +18,7 @@ const oauth2client = new google.auth.OAuth2(
     CLIENT_SECRET,
     REDIRECT_URI
 )
-// console.log(oauth2client);
+
 
 oauth2client.setCredentials({ refresh_token: REFRESH_TOKEN })
 
@@ -28,7 +28,7 @@ const drive = google.drive({
     auth: oauth2client
 })
 
-// console.log(oauth2client);
+
 
 // LIST FILES AND FOLDERS
 async function listFiles() {
@@ -198,5 +198,5 @@ async function downloadFile() {
 
 }
 
-downloadFile().catch(console.error)
+// downloadFile().catch(console.error)
 

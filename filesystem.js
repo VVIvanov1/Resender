@@ -6,6 +6,7 @@ const paTH = 'C:/Users/user/Desktop/vse/web site contents/certificates'
 
 
 
+
 function getFilestList() {
     fs.readdir(pathToFolder, (err, files) => {
 
