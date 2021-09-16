@@ -2,6 +2,9 @@ const { google } = require('googleapis')
 const path = require('path')
 const fs = require('fs')
 const dotenv = require('dotenv')
+const errorLog = require('./logger').errorlog;
+// const successlog = require('../util/logger').successlog;
+const loger = require('./logger')
 
 dotenv.config()
 
@@ -39,23 +42,6 @@ async function listFiles() {
     let folders = res.data.files.filter(obj => obj.mimeType === 'application/vnd.google-apps.folder')
     console.log(folders);
 }
-
-
-// listFiles().catch(console.error)
-// [
-//     {
-//       kind: 'drive#file',
-//       id: '1w7X0rxBCRiuSiiKrZMANGzCTVB1o1jyk',      
-//       name: 'Processed MIRs',
-//       mimeType: 'application/vnd.google-apps.folder'
-//     },
-//     {
-//       kind: 'drive#file',
-//       id: '134vBXfTB5FnQy6PUSj5Ir2Pqz8AxBWS5',      
-//       name: 'MIR Files',
-//       mimeType: 'application/vnd.google-apps.folder'
-//     }
-//   ]
 
 
 // CREATE FILE FOLDER IN GOOGLE
@@ -140,10 +126,13 @@ async function saveToFolder(folderId, name, file) {
         fields: 'id'
     }, function (err, file) {
         if (err) {
-
+            
             console.error(err);
         } else {
-            console.log('File Id: ', file.id);
+     
+            // successlog.info(`Success Message and variables: ${new Date().toDateString()}`);
+            loger.log('info', `File with Id ${file.data.id} was created`)
+
         }
     }
     )

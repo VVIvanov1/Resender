@@ -11,6 +11,8 @@ const gFolder = config.configuration.mirFolderGoogle;
 const pathToFolder = config.configuration.pathToFolder;
 // console.log(config);
 
+
+
 hound.watch(pathToFolder)
     .on('create', (file, stats) => {
         console.log(path.basename(file) + ' was created');
