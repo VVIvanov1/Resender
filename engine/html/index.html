@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>Sample Markup</title>
+  </head>
+  <body>
+    <div id="root" class="container">
+      <div class="nav m5">
+        <h1 class="logo">RESENDER</h1>
+        <span class="status-header-online"
+          >Online
+          <div class="online"></div
+        ></span>
+        <label
+          ><span class="menu-header"
+            ><img src="./icons/menu_open_black_24dp.svg" /><img /></span
+        ></label>
+      </div>
+      <div class="work-area">
+        <div class="branches">
+          <p class="title">Active branches</p>
+          <div class="branches-container">
+            <div class="branch-card">
+              <div class="branch-card-legend">
+                <span>Agency</span>
+                <span>Start date</span>
+                <span>GDS</span>
+              </div>
+              <div class="branch-card-center">
+                <input
+                  type="text"
+                  disabled
+                  class="branch-input"
+                  value="Bai Group KZ"
+                />
+                <input
+                  type="text"
+                  disabled
+                  class="branch-input"
+                  value="10.01.2021:18:35"
+                />
+                <div class="edit-area">
+                  <input
+                    type="text"
+                    disabled
+                    class="branch-input-short"
+                    value="Galileo"
+                  />
+                  <button class="branch-edit-btn">
+                    <span>Edit</span>
+                    <span><img src="./icons/mode_edit_white_24dp.svg" /></span>
+                  </button>
+                </div>
+              </div>
+              <div class="branch-card-info">
+                <img src="icons/info_white_24dp.svg" id="branch-info" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-info">
+          <p class="title">Branch Bai Group KZ Galileo</p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Developed by Ivanov V.V ivanovv.tca@gmail.com</p>
+      </div>
+    </div>
+  </body>
+</html>
