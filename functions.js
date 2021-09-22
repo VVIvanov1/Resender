@@ -110,7 +110,6 @@ async function createFolder(name) {
 
 
 async function saveToFolder(folderId, name, file) {
-    // const folderId = '134vBXfTB5FnQy6PUSj5Ir2Pqz8AxBWS5 @name = file name @file = path to file @ folderId = google drive'
 
     let fileMetadata = {
         name: name,
@@ -120,6 +119,7 @@ async function saveToFolder(folderId, name, file) {
         mimeType: 'text/plain',
         body: fs.createReadStream(file)
     };
+    // console.log(media);
     drive.files.create({
         resource: fileMetadata,
         media: media,
@@ -129,8 +129,6 @@ async function saveToFolder(folderId, name, file) {
             
             console.error(err);
         } else {
-     
-            // successlog.info(`Success Message and variables: ${new Date().toDateString()}`);
             loger.log('info', `File with Id ${file.data.id} was created`)
 
         }
