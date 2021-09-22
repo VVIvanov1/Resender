@@ -10,6 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="./style.css" />
     <title>Sample Markup</title>
@@ -67,10 +73,73 @@
                 <img src="icons/info_white_24dp.svg" id="branch-info" />
               </div>
             </div>
+            <div class="branch-actions">
+              <button class="action-btn">
+                <span>Add new branch</span>
+                <img src="./icons/add_circle_black_24dp.svg" />
+              </button>
+            </div>
           </div>
         </div>
         <div class="branch-info">
-          <p class="title">Branch Bai Group KZ Galileo</p>
+          <div class="about-branch-card">
+            <span class="branch-info-header">
+              <p class="title">Branch Bai Group KZ Galileo</p>
+              <img src="icons/close_black_24dp.svg" />
+            </span>
+            <form class="branch-info-form">
+              <label for="activation-date">Activation date</label>
+              <input
+                type="text"
+                disabled
+                name="activation-date"
+                value="10.01.2021: 12:42"
+              />
+              <label for="path-to-folder">Path to folder</label>
+              <input
+                type="text"
+                disabled
+                name="path-to-folder"
+                value="C://Users/User/Documents/Galileo/MIR"
+              />
+              <label for="gdrive-folder">Folder in Google Drive</label>
+              <input
+                type="text"
+                disabled
+                name="gdrive-folder"
+                value="/MIR_Files"
+              />
+              <label for="docs-processed"
+                >Documents processed since start</label
+              >
+              <input
+                type="text"
+                disabled
+                name="docs-processed"
+                value="Galileo"
+              />
+            </form>
+            <div class="branch-actions right">
+              <button class="action-btn">
+                <span>Edit this branch</span>
+                <img src="./icons/edit_black_24dp.svg" />
+              </button>
+              <button class="action-btn">
+                <span>Remove this branch</span>
+                <img src="./icons/delete_black_24dp.svg" />
+              </button>
+
+              
+            </div>
+            <div class="info-text">
+                <h2>WARNING</h2>
+                <p>
+                  if you delete this branch it will not affect the already saved
+                  files on Google Drive, but subsequent file transport will be
+                  stopped
+                </p>
+              </div>
+          </div>
         </div>
       </div>
 

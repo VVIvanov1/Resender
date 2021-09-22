@@ -26,11 +26,11 @@ p {
   justify-content: space-between;
 }
 .logo {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-style: normal;
   line-height: 21px;
-  font-weight: 500;
+  font-weight: 600;
   color: #747171;
   width: 80%;
 }
@@ -81,12 +81,12 @@ p {
   font-size: 14px;
   line-height: 16px;
   color: #484848;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .branches {
   background: #e7e5e5;
-  width: 290px;
+  width: 100%;
   border-radius: 5px;
   margin-right: 5px;
   padding: 10px;
@@ -104,6 +104,10 @@ p {
   border-radius: 4px;
   display: flex;
   flex-direction: row;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 .branch-card-legend {
   flex: 2;
@@ -168,7 +172,7 @@ p {
 }
 .branch-info {
   background: #d9d6d6;
-  width: 324px;
+  width: 100%;
   border-radius: 5px;
   margin-left: 5px;
   padding: 10px;
@@ -184,8 +188,88 @@ p {
   border-radius: 3px;
   color: white;
   font-family: Roboto, sans-serif;
+  cursor: pointer;
 }
-.branch-edit-btn img{
-    width: 15px;
-    margin-left: 10px;
+.branch-edit-btn img {
+  width: 15px;
+  margin-left: 10px;
+}
+.branch-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding-top: 15px;
+}
+.action-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  background: #e8e6e6;
+  border: 2px solid #7a7979;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+  color: #747171;
+  cursor: pointer;
+}
+.action-btn img {
+  width: 17px;
+  margin-left: 5px;
+}
+.branch-info-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.branch-info-header img{
+    cursor: pointer;
+}
+
+.branch-info-form {
+  display: flex;
+  flex-direction: column;
+}
+.branch-info-form label {
+  font-size: 10px;
+  font-family: Roboto, sans-serif;
+  line-height: 21px;
+}
+.branch-info-form input {
+  padding: 0;
+  padding-left: 5px;
+  line-height: 22px;
+}
+.right {
+  justify-content: space-between;
+}
+.info-text{
+    margin-top: 10px;
+}
+
+.info-text h2 {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #484848;
+}
+.info-text p {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #737373;
 }
